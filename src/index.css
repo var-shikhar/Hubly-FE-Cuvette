@@ -113,6 +113,7 @@ body,
   padding: 0;
   box-sizing: border-box;
   font-family: inherit;
+  background-color: var(--white-color);
 }
 
 p {
@@ -299,33 +300,6 @@ input[type="time"]::-ms-reveal {
   color: var(--danger-color);
 }
 
-/* Preferences CSS */
-.preferences-wrapper {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  gap: 0.4rem;
-  margin: 0.5rem 0;
-}
-.preferences-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  border: 2px solid var(--muted-background);
-  border-radius: 10px;
-  padding: 0.5rem;
-  color: var(--dark-color);
-  font-weight: var(--bold-weight);
-  cursor: pointer;
-  transition: all 0.5s ease-in-out;
-}
-
-.preferences-item:hover,
-.active-preference {
-  border-color: var(--primary-color);
-  background-color: var(--primary-color);
-  color: var(--white-color);
-}
-
 /* Header Classes */
 .header-wrapper {
   display: flex;
@@ -345,7 +319,6 @@ input[type="time"]::-ms-reveal {
 }
 
 /* Tab CSS */
-.tab-wrapper,
 .nav-tab-wrapper {
   border-bottom: 1px solid var(--muted-background);
   margin-bottom: 1rem;
@@ -371,98 +344,6 @@ input[type="time"]::-ms-reveal {
 .active-tab-link {
   color: var(--primary-color);
   border-bottom: 2px solid var(--primary-color);
-}
-
-/* Event Form CSS */
-.event-form-title {
-  border-bottom: 1px solid var(--muted-background);
-}
-
-.event-form-title div {
-  font-size: 1.5rem;
-  font-weight: var(--bold-weight);
-  color: var(--primary-color);
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.event-form-wrapper {
-  padding: 1rem;
-}
-
-.custom-form-input-classes {
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.custom-form-input-classes .input-wrapper,
-.custom-form-input-classes input,
-.custom-form-input-classes textarea {
-  flex-grow: 1;
-  max-width: 80%;
-}
-
-.custom-form-input-classes select {
-  margin-left: auto;
-  width: max-content;
-}
-
-.custom-form-input-classes .input-wrapper input,
-.custom-form-input-classes .input-wrapper textarea {
-  margin-left: auto;
-  width: 100%;
-}
-
-.custom-form-input-classes .input-wrapper .form-error {
-  text-align: end;
-}
-
-.day-input-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.day-input-wrapper select {
-  width: min-content;
-}
-
-.time-zone-class {
-  width: min-content;
-  max-width: 250px;
-}
-
-.image-input {
-  display: none;
-}
-.image-upload-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid var(--muted-background);
-  border-radius: 10px;
-  padding: 0.2rem;
-  width: 40%;
-  height: 200px;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.image-container-text {
-  font-size: var(--small-font-size);
-  color: var(--dark-color);
-  opacity: 80%;
-}
-
-.image-upload-preview {
-  object-fit: cover;
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  max-height: 100%;
 }
 
 .color-picker-wrapper {
@@ -521,123 +402,6 @@ input[type="time"]::-ms-reveal {
 .color-input-text {
   font-size: var(--small-font-size);
   color: var(--dark-color);
-}
-
-.custom-email-input-wrapper {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  padding: 0.5rem;
-  width: 80%;
-  border: 1px solid var(--muted-background);
-  border-radius: 15px;
-  margin-left: auto;
-  position: relative;
-}
-
-.email-item {
-  display: flex;
-  align-items: center;
-  padding: 5px 10px;
-  border-radius: 10px;
-  font-size: var(--small-font-size);
-  background: var(--secondary-color);
-  color: var(--dark-color);
-}
-
-.remove-email {
-  margin-left: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  color: var(--danger-color);
-  padding: 0.1rem 0.25rem;
-  transition: all 0.3s ease-in-out;
-  border-radius: 15px;
-}
-.remove-email:hover {
-  background-color: rgb(224, 178, 133);
-}
-
-.custom-email-input-wrapper input {
-  flex-grow: 1;
-  margin-left: 0 !important;
-  border: 0;
-  width: auto !important;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 10;
-  width: 80%;
-  background: var(--white-color);
-  border-radius: 4px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  max-height: 150px;
-  overflow-y: auto;
-  z-index: 10;
-}
-
-.dropdown-item {
-  padding: 8px;
-  cursor: pointer;
-  font-size: var(--small-font-size);
-  color: var(--dark-color);
-}
-
-.dropdown-item:hover {
-  background: var(--secondary-color);
-}
-
-/* Event Page CSS */
-.event-card-wrapper {
-  display: grid;
-  gap: 1rem;
-  padding: 1rem;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 600px) {
-  .event-card-wrapper {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 900px) {
-  .event-card-wrapper {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Availability Page CSS */
-
-.tab-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-center;
-  gap: 0.5rem;
-  background-color: var(--muted-background);
-  width: max-content;
-  border-radius: 10px;
-  padding: 0.3rem;
-}
-
-.tab-link-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.2rem;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  font-size: var(--small-font-size);
-  color: var(--dark-color);
-  padding: 0.2rem 0.5rem;
-  border-radius: 5px;
-}
-
-.tab-link-item:hover,
-.tab-link-item.active-item {
-  background-color: var(--white-color);
 }
 
 /* Public Landing CSS */
@@ -704,6 +468,11 @@ input[type="time"]::-ms-reveal {
   margin: auto;
 }
 
+input {
+  color: var(--semi-dark-color);
+  background-color: var(--white-color);
+}
+
 @media (max-width: 768px) {
   /* Landing Pages */
   .landing_heading {
@@ -713,24 +482,5 @@ input[type="time"]::-ms-reveal {
   /* Setting Page */
   .setting-form-wrapper {
     max-width: 90%;
-  }
-
-  .card {
-    padding: 1rem;
-  }
-
-  /* Custom Form Input Classes */
-  .custom-form-input-classes {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .custom-form-input-classes .input-wrapper,
-  .custom-form-input-classes input,
-  .custom-form-input-classes textarea,
-  .image-upload-container,
-  .custom-email-input-wrapper {
-    width: 100%;
-    max-width: 100%;
   }
 }

@@ -9,4 +9,9 @@ export default defineConfig({
       "@": "/src",
     },
   },
+  server: {
+    allowedHosts: ["all"],
+    origin:
+      "https://dc29-2401-4900-468d-3275-547a-49c7-2107-fa2f.ngrok-free.app",
+  },
 })
