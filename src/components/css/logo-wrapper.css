@@ -1,0 +1,21 @@
+.logo-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--primary-color);
+  /* WIP: need to add the color here */
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  height: auto;
+}
+
+.logo-wrapper span {
+  font-weight: 550;
+  font-size: xx-large;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}

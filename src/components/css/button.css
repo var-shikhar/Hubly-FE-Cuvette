@@ -1,0 +1,45 @@
+.btn {
+  border: none;
+  outline: none;
+  outline-color: transparent;
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border: 1px solid;
+}
+
+.btn-outline {
+  background-color: transparent;
+}
+
+.btn-sm {
+  padding: 0.4em 0.8em;
+  font-size: 0.85em;
+}
+
+.btn-md {
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+}
+
+.btn-lg {
+  padding: 0.8em 1.5em;
+  font-size: 1.2em;
+}
+
+.btn:focus,
+.btn:focus-visible,
+.btn:focus-within,
+.btn:hover {
+  outline: 5px auto;
+  outline-offset: 2px;
+  filter: brightness(80%);
+}
