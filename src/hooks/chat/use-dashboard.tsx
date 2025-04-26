@@ -1,5 +1,5 @@
 import { ChangeEvent, useMemo, useState } from "react"
-import { TLead, useGetLeadListQuery } from "../../redux/slice/lead-slice"
+import { useGetLeadListQuery } from "../../redux/slice/lead-slice"
 import { useNavigate } from "react-router-dom"
 
 const mode = [

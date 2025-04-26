@@ -1,16 +1,16 @@
 import clsx from "clsx"
 import { useCallback, useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { NavLink } from "react-router-dom"
-import { logoutUser } from "../redux/slice/user-slice"
-import { AppDispatch, RootState } from "../redux/store"
-import HOME_SVG from "../assets/home.svg"
-import ANALYTICS_SVG from "../assets/ranking.svg"
-import MESSAGE_SVG from "../assets/message.svg"
 import CHAT_BOT_SVG from "../assets/chatbot.svg"
-import TEAM_SVG from "../assets/team.svg"
-import SETTINGS_SVG from "../assets/settings.svg"
+import HOME_SVG from "../assets/home.svg"
+import MESSAGE_SVG from "../assets/message.svg"
 import PROFILE_SVG from "../assets/profile.svg"
+import ANALYTICS_SVG from "../assets/ranking.svg"
+import SETTINGS_SVG from "../assets/settings.svg"
+import TEAM_SVG from "../assets/team.svg"
+import { logoutUser } from "../redux/slice/user-slice"
+import { AppDispatch } from "../redux/store"
 import "./css/aside.css"
 import LogoWrapper from "./logo-wrapper"
 
@@ -56,7 +56,6 @@ const ASIDE_LIST = [
 
 const Aside = () => {
   const dispatch = useDispatch<AppDispatch>()
-  const { user } = useSelector((state: RootState) => state.user)
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
 
   // Set the initial state based on the window width

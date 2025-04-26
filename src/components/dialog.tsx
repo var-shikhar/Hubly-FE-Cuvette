@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import { ReactNode, Dispatch, SetStateAction, MouseEvent } from "react"
+import { Dispatch, ReactNode, SetStateAction } from "react"
 import Button from "./button"
 import "./css/dialog.css"
 
@@ -25,17 +25,18 @@ const Modal = ({
   className,
   hasFooter = false,
 }: TModalProps) => {
-  const handleOverlayClick = (e: MouseEvent<HTMLDivElement, MouseEvent>) => {
-    if (e.target === e.currentTarget) {
-      handleClose()
-    }
-  }
-
   if (!open) return null
   const handleClose = () => onClose(false)
 
   return (
-    <div className="modal-overlay" onClick={handleOverlayClick}>
+    <div
+      className="modal-overlay"
+      onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+        if (e.target === e.currentTarget) {
+          handleClose()
+        }
+      }}
+    >
       <div className={clsx("modal-container", `modal-${size}`, className)}>
         <div className="modal-header">
           {title && <div className="modal-title">{title}</div>}
