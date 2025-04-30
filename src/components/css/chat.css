@@ -276,3 +276,13 @@
 .bottom-text {
   color: var(--semi-dark-color);
 }
+
+@media (max-width: 768px) {
+  .chat_detail-wrapper {
+    display: none;
+  }
+
+  .chat_item {
+    overflow-x: hidden;
+  }
+}

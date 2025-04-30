@@ -1,3 +1,18 @@
+/*
+|--------------------------------------------------------------------------- 
+| ChatBot Component (for End-User)
+|--------------------------------------------------------------------------- 
+| A chatbot component allowing end-users to raise tickets and request support. 
+| The component features a dynamic interface with a welcome message, custom 
+| messages, and the ability to start a conversation with a chatbot. It supports 
+| user form submission, where users can provide their details like name, phone, 
+| and email before proceeding with a chat. The conversation is updated  
+| as the user sends messages, and tickets are tracked with statuses. 
+| If a ticket is resolved, users are offered the option to create a new one. 
+| The component also handles loading states, error handling, and resetting chat 
+| sessions. 
+*/
+
 import { ChangeEvent } from "react"
 import ACTIVE_CHATBOT_ICON from "../assets/active-chatbot.svg"
 import MESSAGE_ICON from "../assets/chat.svg"

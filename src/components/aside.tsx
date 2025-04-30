@@ -1,3 +1,18 @@
+/*
+|--------------------------------------------------------------------------- 
+| Aside Component
+|--------------------------------------------------------------------------- 
+| A responsive sidebar component that adapts to mobile and desktop views. 
+| The sidebar displays navigation links with icons and titles, which are 
+| dynamically generated from the `ASIDE_LIST` array. The navigation changes 
+| based on whether the screen size is mobile or desktop. On mobile, a fixed 
+| header with a user profile icon and a bottom navigation bar is shown, 
+| while on desktop, a vertical navigation bar is displayed. The component 
+| also includes a user sign-out feature triggered by the user profile icon. 
+| The component uses `useDispatch` to handle user logout by dispatching the 
+| `logoutUser` action from Redux. 
+*/
+
 import clsx from "clsx"
 import { useCallback, useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
@@ -14,7 +29,7 @@ import { AppDispatch } from "../redux/store"
 import "./css/aside.css"
 import LogoWrapper from "./logo-wrapper"
 
-// Aside List as Const
+// Aside List
 const ASIDE_LIST = [
   {
     id: 1,
@@ -76,6 +91,7 @@ const Aside = () => {
     dispatch(logoutUser())
   }, [])
 
+  // Handle Mobile View
   if (isMobile) {
     return (
       <>

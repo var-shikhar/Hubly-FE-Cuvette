@@ -1,3 +1,12 @@
+/**
+ * useSignIn – Custom hook to handle sign-in form logic.
+ *
+ * - Manages form state and validation.
+ * - Dispatches login action via Redux.
+ * - Shows toast on success and redirects.
+ * - Designed for use with dynamic FormGenerator.
+ */
+
 import { FormEvent, useState } from "react"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
@@ -20,6 +29,7 @@ const useSignIn = () => {
     password: "Password is required",
   })
 
+  // Handle (Setup) Form Value and Errors
   const handleUpdate = (
     name: string,
     value: string | boolean | string[] | null,
@@ -36,6 +46,7 @@ const useSignIn = () => {
     })
   }
 
+  // Handle Sign-In Form Submission
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     try {
       event.preventDefault()

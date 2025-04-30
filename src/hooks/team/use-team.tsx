@@ -1,3 +1,11 @@
+/**
+ * useTeamHook – Custom hook for managing team members in a team management context.
+ *
+ * - Fetches the list of members and provides functionality for sorting, filtering, and handling different modes (edit, delete, create).
+ * - Handles user selection, modal toggling, and deletion of members.
+ * - Provides helper functions for navigation, sorting, and updating team data.
+ */
+
 import { startTransition, useMemo, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { showToast } from "../../lib/utils"
@@ -21,6 +29,7 @@ const useTeamHook = () => {
   const [mode, setMode] = useState<TModeType | null>(null)
   const [selectedUser, setSelectedUser] = useState<string | null>(null)
 
+  // Filter and Sort the List
   const filteredList = useMemo(() => {
     let tempList = [...(memberList ?? [])]
 
@@ -51,7 +60,7 @@ const useTeamHook = () => {
     startTransition(() => {
       setSelectedUser(id)
       setMode(mode)
-      mode !== "Edit" && setModalToggle(true)
+      if (mode !== "Edit") setModalToggle(true)
     })
   }
 

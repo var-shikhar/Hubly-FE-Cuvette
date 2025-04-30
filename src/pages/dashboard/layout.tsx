@@ -1,3 +1,5 @@
+// Common Layout Wrapper for all the Private Pages
+
 import { Outlet } from "react-router-dom"
 import Aside from "../../components/aside"
 import "../../components/css/layout.css"

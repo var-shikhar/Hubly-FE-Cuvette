@@ -1,5 +1,22 @@
+/**
+ * useChatBot – Custom hook for chatbot logic and conversation handling.
+ *
+ * - Manages chatbot visibility, input, and lead conversation state.
+ * - Handles first-time and follow-up user messages.
+ * - Supports user info form submission and validation.
+ * - Automatically scrolls chat to latest message.
+ * - Caches and retrieves leadID in localStorage.
+ */
+
 import { skipToken } from "@reduxjs/toolkit/query"
-import { ChangeEvent, KeyboardEvent, useEffect, useRef, useState } from "react"
+import {
+  ChangeEvent,
+  KeyboardEvent,
+  startTransition,
+  useEffect,
+  useRef,
+  useState,
+} from "react"
 import { showToast } from "../../lib/utils"
 import {
   TChatBotSetting,
@@ -53,13 +70,13 @@ const useChatBot = () => {
         scrollToBottom()
       }, 100)
     }
-  }, [convData, toggleChatBot])
+  }, [toggleChatBot, converstaionData])
 
   // Handle Toggle Chat Bot
   const handleToggleChatBot = () => {
     setToggleChatBot((prev) => !prev)
     if (!toggleChatBot) refetchConvData()
-    welcomeToggle && setWelcomeToggle(false)
+    if (welcomeToggle) setWelcomeToggle(false)
   }
 
   // Handle Chat Bot Input
@@ -145,11 +162,13 @@ const useChatBot = () => {
 
   // Function Handle Reset
   function handleReset() {
-    setInputText("")
-    setWelcomeToggle(false)
-    setConverstaionData(null)
-    setLeadID("")
-    localStorage.removeItem("leadID")
+    startTransition(() => {
+      setInputText("")
+      setWelcomeToggle(false)
+      setConverstaionData(null)
+      setLeadID("")
+      localStorage.removeItem("leadID")
+    })
   }
 
   // Scroll to Bottom

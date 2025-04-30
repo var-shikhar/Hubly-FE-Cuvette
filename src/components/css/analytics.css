@@ -56,3 +56,9 @@
   font-weight: bold;
   color: var(--success-color);
 }
+
+@media (max-width: 768px) {
+  .metric-card-wrapper {
+    width: 100%;
+  }
+}

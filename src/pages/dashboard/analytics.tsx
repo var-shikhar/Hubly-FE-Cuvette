@@ -27,6 +27,7 @@ ChartJS.register(
   Legend
 )
 
+// The Analytics component - Rendering the Header and metric cards for displaying analytics data
 const Analytics = () => {
   const { data } = useAnalytics()
   return (
@@ -44,6 +45,7 @@ const Analytics = () => {
 
 export default Analytics
 
+// The MissedChatsChart component - Chart displaying missed chat data over multiple weeks
 const MissedChatsChart = ({ leadData }: { leadData: number[] }) => {
   const data: ChartData<"line"> = {
     labels: [
@@ -94,6 +96,7 @@ const MissedChatsChart = ({ leadData }: { leadData: number[] }) => {
   )
 }
 
+// The ResolvedTickets component - Displays a Doughnut chart showing resolved vs. pending tickets
 const ResolvedTickets = ({ total }: { total: number }) => {
   const data: ChartData<"doughnut"> = {
     labels: ["Resolved", "Pending"],
@@ -122,11 +125,11 @@ const ResolvedTickets = ({ total }: { total: number }) => {
         <small>
           A callback system on a website, as well as proactive invitations, help
           to attract even more customers. A separate round button for ordering a
-          call with a small animation helps to motivate more
-          customers to make calls.
+          call with a small animation helps to motivate more customers to make
+          calls.
         </small>
       </div>
-      <p className="metric-detail">
+      <div className="metric-detail">
         <div className="doughnut-container">
           <Doughnut
             data={data}
@@ -135,11 +138,12 @@ const ResolvedTickets = ({ total }: { total: number }) => {
           />
           <div className="doughnut-text">{total}%</div>
         </div>
-      </p>
+      </div>
     </div>
   )
 }
 
+// The AverageReplyTime component - Displays average reply time in seconds
 const AverageReplyTime = ({ total }: { total: number }) => (
   <div className="metric-card">
     <div className="metric-header">
@@ -147,14 +151,15 @@ const AverageReplyTime = ({ total }: { total: number }) => (
       <small>
         For highest customer satisfaction rates you should aim to reply to an
         incoming customer's message in 15 seconds or less. Quick responses will
-        get you more conversations, help you earn customers trust and
-        make more sales.
+        get you more conversations, help you earn customers trust and make more
+        sales.
       </small>
     </div>
     <p className="metric-detail">{total} secs</p>
   </div>
 )
 
+// The TotalChats component - Displays total number of chats for the selected period
 const TotalChats = ({ total }: { total: number }) => (
   <div className="metric-card">
     <div className="metric-header">

@@ -1,3 +1,19 @@
+/*
+|---------------------------------------------------------------------------------- 
+| ColorPicker Component (For Form Input Customization)
+|---------------------------------------------------------------------------------- 
+| This component allows users to select a color for form customization. It displays 
+| a set of predefined color swatches (from `defaultColor`) and a native HTML color 
+| picker input. When a color is selected—either from the swatches or the input—it 
+| triggers the `onChange` callback with the selected color value. The currently 
+| selected color is also previewed visually beside the color input for clarity.
+|
+| Props:
+| - defaultColor: Array of predefined color hex codes.
+| - currentColor: The currently selected color.
+| - onChange: Function called with the selected color when a change occurs.
+*/
+
 type TColorPickerProps = {
   defaultColor: string[]
   currentColor: string | undefined

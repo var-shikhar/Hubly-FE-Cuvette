@@ -1,6 +1,6 @@
-const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL
+// Common page for setting and managing all Project Routes
 
-// Common Panel for all Project Routes
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL
 export const ROUTES = {
   LoginRoute: `${BACKEND_URL}/auth/login`,
   RegisterRoute: `${BACKEND_URL}/auth/register`,

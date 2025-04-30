@@ -1,3 +1,22 @@
+/*
+|----------------------------------------------------------------------------------
+| Modal Component
+|----------------------------------------------------------------------------------
+| This component displays a customizable modal dialog with optional header, footer,
+| close button, and various size options. It supports closing the modal by clicking
+| outside the content area or via a close button.
+|
+| Props:
+| - open (boolean): Controls visibility of the modal.
+| - onClose (Dispatch): Function to handle modal close action.
+| - title (string): Optional title text for the modal header.
+| - children (ReactNode): The main content of the modal.
+| - size ("small" | "medium" | "large"): Modal size, defaults to "medium".
+| - closeButton (boolean): Show or hide the top-right close button, defaults to true.
+| - className (string): Additional class names for the modal container.
+| - hasFooter (boolean): Whether to display a footer with a close button.
+*/
+
 import clsx from "clsx"
 import { Dispatch, ReactNode, SetStateAction } from "react"
 import Button from "./button"

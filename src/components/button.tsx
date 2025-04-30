@@ -1,3 +1,17 @@
+/*
+|--------------------------------------------------------------------------- 
+| Button Component
+|--------------------------------------------------------------------------- 
+| A reusable button component that can be customized with various props 
+| such as variant, color, size, icon, and loading state. It supports different 
+| button styles like "outline" and "default", and multiple color options 
+| (primary, secondary, success, danger, warning, none). The component also 
+| handles loading states with a spinner and custom loading text. Icons can 
+| be placed either to the left or right of the button text. The button's 
+| behavior adapts based on the `disabled` or `isLoading` states to prevent 
+| interactions when necessary.
+*/
+
 import clsx from "clsx"
 import { ReactNode, ButtonHTMLAttributes } from "react"
 import "./css/button.css"

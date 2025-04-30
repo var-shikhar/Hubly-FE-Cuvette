@@ -1,3 +1,12 @@
+/**
+ * useSignUP – Custom hook for handling user registration.
+ *
+ * - Manages form state, validation, and errors.
+ * - Dispatches signup action via Redux.
+ * - Shows toast on success and redirects to sign-in.
+ * - Integrates with dynamic FormGenerator.
+ */
+
 import { FormEvent, useState } from "react"
 import { FormGeneratorProps } from "../../components/form-generator"
 import { Link, useNavigate } from "react-router-dom"
@@ -28,6 +37,7 @@ const useSignUP = () => {
     termsAndConditions: "Terms and Conditions is required",
   })
 
+  // Handle Form Value and Errors
   const handleUpdate = (
     name: string,
     value: string | boolean | string[] | null,
@@ -155,6 +165,7 @@ const useSignUP = () => {
     },
   ] as const
 
+  // Signup Controller
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     try {
       event.preventDefault()

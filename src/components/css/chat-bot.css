@@ -6,6 +6,7 @@
   bottom: 2%;
   right: 2%;
   cursor: pointer;
+  z-index: 15;
 }
 
 .welcome-wrapper {

@@ -54,9 +54,9 @@ export const showToast = (message: string, type: ToastType) => {
 
 // Get Random User Image
 const USER_IMAGES = [USER_1, USER_2, USER_3, USER_4, USER_5, USER_6]
-export function getRandomImage() {
+export function getRandomImage(number = 1): string {
   const randomIndex = Math.floor(Math.random() * USER_IMAGES.length)
-  return USER_IMAGES[randomIndex]
+  return USER_IMAGES[number ?? randomIndex]
 }
 
 // Get Time Difference

@@ -200,4 +200,13 @@
     left: 40%;
     transform: translateY(20%);
   }
+
+  .chat-bot_settings {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .chat-bot_settings-wrapper {
+    width: 100%;
+  }
 }

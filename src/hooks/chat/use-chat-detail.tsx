@@ -1,3 +1,13 @@
+/**
+ * useChatDetail – Custom hook for managing individual chat detail view and operations.
+ *
+ * - Fetches chat list, individual chat messages, and assignee options.
+ * - Manages chat selection, message sending, status updates, and assignee changes.
+ * - Handles confirmation dialogs for updates with mode/context tracking.
+ * - Auto-scrolls chat to the bottom when new data arrives.
+ * - Supports direct chat opening via URL param (when `isDirect` is true).
+ */
+
 import { skipToken } from "@reduxjs/toolkit/query"
 import {
   ChangeEvent,
@@ -7,6 +17,8 @@ import {
   useRef,
   useState,
 } from "react"
+import { useParams } from "react-router-dom"
+import { showToast } from "../../lib/utils"
 import {
   TChatList,
   useGetAssigneeListQuery,
@@ -16,8 +28,6 @@ import {
   usePutChatStatusMutation,
   usePutMessageMutation,
 } from "../../redux/slice/lead-slice"
-import { showToast } from "../../lib/utils"
-import { useParams } from "react-router-dom"
 
 const statusMode = ["Resolved", "Unresolved"]
 
@@ -31,8 +41,10 @@ const useChatDetail = ({ isDirect = false }: Props) => {
     refetchOnMountOrArgChange: true,
   })
   const [activeChat, setActiveChat] = useState<null | TChatList>(null)
+  // For Setting the Chat Window Height For Auto Scroll
   const chatWindowRef = useRef<HTMLDivElement>(null)
 
+  // RTK Query EndPoints for Fetcing and Updating the Data
   const { data: assigneeList, isLoading: isFetchingChats } =
     useGetAssigneeListQuery(activeChat ? activeChat.leadID : skipToken)
   const { data: activeChatData, refetch: refetchConvData } =
@@ -45,6 +57,7 @@ const useChatDetail = ({ isDirect = false }: Props) => {
 
   // Common Selected and Mode State for Assignee and Status Update
   const [selectedData, setSelectedData] = useState<string | null>(null)
+  const [selectedIdx, setSelectedIdx] = useState<number>(0)
   const [mode, setMode] = useState<string | null>(null)
   const [inputValue, setInputValue] = useState("")
 
@@ -199,6 +212,8 @@ const useChatDetail = ({ isDirect = false }: Props) => {
     handleChatSubmission,
     inputValue,
     chatWindowRef,
+    selectedIdx,
+    setSelectedIdx,
   }
 }
 

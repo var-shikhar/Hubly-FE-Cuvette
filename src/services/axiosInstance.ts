@@ -1,3 +1,5 @@
+// Common Instanse Setter for the Axios Instance Wherein the Credentials and other details are set globally for all axios requests
+
 import { sessionLogout, showToast } from "../lib/utils"
 import axios from "axios"
 import Cookies from "js-cookie"

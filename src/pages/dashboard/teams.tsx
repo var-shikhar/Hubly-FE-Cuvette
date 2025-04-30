@@ -7,9 +7,9 @@ import "../../components/css/team.css"
 import Modal from "../../components/dialog"
 import MemberForm from "../../components/form/member"
 import Header from "../../components/header"
+import ProfileImage from "../../components/profile-image"
 import LoadingSpinner from "../../components/spinner"
 import useTeamHook from "../../hooks/team/use-team"
-import { getRandomImage } from "../../lib/utils"
 
 const Teams = () => {
   const {
@@ -57,15 +57,10 @@ const Teams = () => {
           </thead>
           <tbody>
             {filteredList?.length > 0 ? (
-              filteredList.map((item) => (
+              filteredList.map((item, idx) => (
                 <tr key={item.userId}>
                   <td>
-                    <img
-                      src={getRandomImage()}
-                      alt="userProfile"
-                      width={35}
-                      height={35}
-                    />
+                    <ProfileImage width={35} number={idx <= 5 ? idx : 1} />
                   </td>
                   <td>{item.userName}</td>
                   <td>{item.userPhone}</td>
@@ -115,6 +110,8 @@ const Teams = () => {
           Add New Member
         </Button>
       )}
+
+      {/* Common HOC Modal for Create and Delete */}
       <Modal
         open={modalToggle}
         onClose={() => setModalToggle(false)}

@@ -1,3 +1,5 @@
+// Members Registration Form
+
 import useMemberForm from "../../hooks/team/use-member-form"
 import Button from "../button"
 import FormGenerator from "../form-generator"
@@ -16,6 +18,7 @@ const MemberForm = ({ handleConfirmation }: Props) => {
         visible to it's participants. New teammates may only be invited by the
         administrators.
       </div>
+      {/* Form Generator Component which generates form based on JSON */}
       <form onSubmit={handleSubmission}>
         {MEMBER_FORM_ELEMENTS?.map((item) => (
           <FormGenerator

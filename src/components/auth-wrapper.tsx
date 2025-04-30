@@ -1,3 +1,12 @@
+/*
+|--------------------------------------------------------------------------- 
+| AuthWrapper Component
+|--------------------------------------------------------------------------- 
+| A common wrapper component used for both the Signup and Signin pages. 
+| It provides a consistent layout that includes a title, optional side link 
+| for navigation (e.g., "Forgot Password" or "Create an Account"). 
+*/
+
 import { ReactNode } from "react"
 import { Link } from "react-router-dom"
 import FRAME from "../assets/Frame.png"

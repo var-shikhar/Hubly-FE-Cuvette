@@ -1,3 +1,11 @@
+/**
+ * useMemberForm – Custom hook for managing the state and functionality of the member creation form.
+ *
+ * - Manages form data, validation, and error handling for creating a new member.
+ * - Handles form submission by calling an RTK mutation to add the member to the backend.
+ * - Provides dynamic form elements and validates the form based on predefined rules.
+ */
+
 import { FormEvent, useState } from "react"
 import { FormGeneratorProps } from "../../components/form-generator"
 import { showToast } from "../../lib/utils"
@@ -15,7 +23,7 @@ const useMemberForm = ({ confirmFn }: { confirmFn: () => void }) => {
     designation: "Designation is required",
   })
 
-  // Handle Form State sUpdate
+  // Handle Form State and Error Update
   const handleUpdate = (
     name: string,
     value: string | boolean | string[] | null,
@@ -79,14 +87,17 @@ const useMemberForm = ({ confirmFn }: { confirmFn: () => void }) => {
     },
   ] as const
 
-  // Handle Create
+  // Handle Form Submission
   async function handleSubmission(event: FormEvent<HTMLFormElement>) {
     try {
       event.preventDefault()
+      // Check for Form Errors before initiating the BE Call
       if (Object.keys(formErrors).length > 0) {
         console.log("Form has errors:", formErrors)
         return
       }
+
+      // RTK Mutation to create the member
       await createFunction({
         name: formData.name,
         email: formData.email,

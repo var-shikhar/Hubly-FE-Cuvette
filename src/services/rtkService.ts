@@ -1,3 +1,4 @@
+// Common RTK Query Instance for the RTK Queries and Mutations
 import {
   BaseQueryApi,
   FetchArgs,

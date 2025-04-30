@@ -1,3 +1,13 @@
+/**
+ * useSetting – Custom hook for managing and updating user settings.
+ *
+ * - Fetches user details or member details based on the `isChild` flag and current `id`.
+ * - Handles form state management, validation, and error handling for updating user settings.
+ * - Provides dynamic form elements, including fields like name, email, phone, and password.
+ * - Uses RTK Query for fetching and updating member data.
+ */
+
+
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"

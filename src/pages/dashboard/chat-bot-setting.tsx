@@ -16,6 +16,7 @@ type TProps = {
   title: string
 }
 
+// HOC to wrap the Chat Bot Setting Component (maintaining similar design approach)
 const ChatBotSettingWrapper = ({ children, title }: TProps) => (
   <div className="chat-bot_settings-wrapper">
     <div className="chat-bot_settings-title">{title}</div>
@@ -152,8 +153,10 @@ const ChatBotSetting = () => {
                       setFormData((prev) => ({
                         ...prev!,
                         formPlaceholder: {
-                          ...prev?.formPlaceholder!,
                           name: value,
+                          email: prev!.formPlaceholder.email,
+                          phone: prev!.formPlaceholder.phone,
+                          submitButton: prev!.formPlaceholder.submitButton,
                         },
                       }))
                     }}
@@ -172,8 +175,10 @@ const ChatBotSetting = () => {
                       setFormData((prev) => ({
                         ...prev!,
                         formPlaceholder: {
-                          ...prev?.formPlaceholder!,
+                          name: prev!.formPlaceholder.name,
+                          email: prev!.formPlaceholder.email,
                           phone: value,
+                          submitButton: prev!.formPlaceholder.submitButton,
                         },
                       }))
                     }}
@@ -192,8 +197,10 @@ const ChatBotSetting = () => {
                       setFormData((prev) => ({
                         ...prev!,
                         formPlaceholder: {
-                          ...prev?.formPlaceholder!,
+                          name: prev!.formPlaceholder.name,
                           email: value,
+                          phone: prev!.formPlaceholder.phone,
+                          submitButton: prev!.formPlaceholder.submitButton,
                         },
                       }))
                     }}
@@ -210,7 +217,9 @@ const ChatBotSetting = () => {
                     setFormData((prev) => ({
                       ...prev!,
                       formPlaceholder: {
-                        ...prev?.formPlaceholder!,
+                        name: prev!.formPlaceholder.name,
+                        email: prev!.formPlaceholder.email,
+                        phone: prev!.formPlaceholder.phone,
                         submitButton: value,
                       },
                     }))
@@ -225,9 +234,9 @@ const ChatBotSetting = () => {
               <CustomInput
                 value={formData?.welcomeMessage ?? ""}
                 onChange={(value: string) => {
-                  setFormData((prev: any) => {
+                  setFormData((prev) => {
                     return {
-                      ...prev,
+                      ...prev!,
                       welcomeMessage: value,
                     }
                   })
@@ -238,9 +247,9 @@ const ChatBotSetting = () => {
               <TimePicker
                 state={formData?.missedChatTimer}
                 onChange={(state) => {
-                  setFormData((prev: any) => {
+                  setFormData((prev) => {
                     return {
-                      ...prev,
+                      ...prev!,
                       missedChatTimer: state,
                     }
                   })

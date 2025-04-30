@@ -1,52 +1,49 @@
-# Hubly - Chat bot
+# Hubly - Chatbot & Admin Management Portal
 
-## Overview
+## 🚀 Overview
 
-Hubly simplifies scheduling for you and your team by eliminating the back-and-forth of setting up meetings. Set your availability, share your link, and let others book time with you instantly.
+**Hubly** is a team-oriented communication platform that enables businesses to integrate a **chatbot interface for end-users** and a **powerful admin portal** for internal management. End-users can chat through a widget embedded in a website, while **admins** can monitor conversations, manage chatbot settings, configure teams, and view chat-based analytics.
 
-## Features
+## ✨ Features
 
-### Event Creation & Participation
+### 💬 Chatbot (End-User Experience)
 
-- Users can create events and invite participants.
-- Participants can accept or reject the invitation.
+- Embed the chatbot on your website to allow visitors to initiate a conversation.
+- Simple and responsive user interface for messaging.
+- Persistent chat history and session handling.
 
-### Availability Management
+### 🛠️ Admin Portal
 
-- Users can set their availability (days & multiple time slots).
-- Before scheduling, the system checks:
-  - If the user is available at that day and time.
-  - If there are any conflicting events at the same time.
+- **Chatbot Personalization**: Customize placeholder texts, welcome messages, button labels, and color themes.
+- **Team Management**: Create and manage teams and assign chats to specific users.
+- **Analytics Dashboard**:
+  - View chatbot usage metrics.
+  - Monitor chatbot response time.
 
-### Profile Management
-
-- Users can set and update their profile details.
-
-## Tech Stack
+## 🧱 Tech Stack
 
 ### Frontend
 
 - **React**
 - **Redux Toolkit (RTK Query)**
-- **Cloudinary** (for image uploads)
 - **Vanilla CSS**
 
 ### Backend
 
-- **Node.js/Express** (Handled in a separate repository)
+- **Node.js/Express** ([Handled in a separate repository](https://github.com/var-shikhar/Hubly-BE-Cuvette))
 
 ### Database
 
-- **MongoDB** (Handled in the backend)
+- **MongoDB** ([Handled in the backend](https://github.com/var-shikhar/Hubly-BE-Cuvette))
 
-## Installation
+## 📦 Installation
 
 Follow these steps to set up the frontend locally:
 
 ```sh
 # Clone the repository
-git clone https://github.com/var-shikhar/cnnct-event-mangement-FE-Cuvette.git
-cd cnnct-event-mangement-FE-Cuvette
+git clone https://github.com/var-shikhar/Hubly-BE-Cuvette.git
+cd Hubly-BE-Cuvette
 
 # Install dependencies
 npm install
@@ -60,33 +57,33 @@ npm run dev
 
 Open the app in your browser at `http://localhost:5173`
 
-## Usage & Code Structure
+## 📂 Code Structure
 
-### Modularized Codebase
+### 🧱 Modularized Codebase
 
 - The project is structured to ensure better maintainability and reusability.
-- Components are designed to be reusable wherever possible.
+- Components are designed to be reusable wherever possible
+- Shared logic and styling patterns for consistency across the app.
 
-### Form Generator Component
+### 🧩 Form Generator Component
 
 - Dynamically generates forms based on a JSON schema.
 - Includes built-in validation for form fields.
 
-### Calendar View
+## 🌍 Environment Variables
 
-- Uses `react-big-calendar` to display a list of scheduled events.
-- Provides an intuitive UI for managing and viewing meetings.
+Create a .env file in the project root using the following structure:
 
-## Environment Variables
-
-To configure Cloudinary, register at [Cloudinary](https://cloudinary.com/) and retrieve your credentials:
-
-```env
-CLOUDINARY_CLOUD_NAME=your_cloud_name
-CLOUDINARY_UPLOAD_PRESET=your_upload_preset
+```sh
+# Copy the .env.example file
+cp .env.example .env
+  VITE_APP_BACKEND_URL=
+  VITE_APP_DEV_BACKEND_URL=
 ```
 
-## Contact
+These environment variables are used to switch between production and development API endpoints.
+
+## 📬 Contact
 
 For more details, reach out to:
 

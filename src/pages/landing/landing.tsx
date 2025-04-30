@@ -1,8 +1,8 @@
+import { Link } from "react-router-dom"
 import ARROW_IMAGE from "../../assets/arrow.svg"
 import BACKGOURND_1 from "../../assets/bg-1.svg"
 import BUCKET_IMAGE from "../../assets/bucket.svg"
 import CHECK_ICON from "../../assets/check.svg?react"
-import HERO_IMAGE_1 from "../../assets/hero-1.svg"
 import HERO_NOTIFICATION_IMAGE from "../../assets/hero-notification.svg"
 import HERO_SALES_IMAGE from "../../assets/hero-sales.svg"
 import ADOBE_ICON from "../../assets/logo/adobe.svg?react"
@@ -35,9 +35,11 @@ const LandingPage = () => {
               in one powerful platform.
             </div>
             <div>
-              <Button color="primary" icon={ARROW_IMAGE} iconPosition="right">
-                Get started
-              </Button>
+              <Link to="/auth/sign-up" className="no_decoration">
+                <Button color="primary" icon={ARROW_IMAGE} iconPosition="right">
+                  Get started
+                </Button>
+              </Link>
               <span className="landing_hero-video">
                 <img src={VIDEO_ICON} alt="video" width={12} height={12} />
                 Watch Video
@@ -45,7 +47,6 @@ const LandingPage = () => {
             </div>
           </div>
           <div className="landing_hero-image-wrapper">
-            <img src={HERO_IMAGE_1} alt="hero-image" />
             <img src={HERO_NOTIFICATION_IMAGE} alt="hero-notification-image" />
             <img src={HERO_SALES_IMAGE} alt="hero-sales-image" />
             <img src={BACKGOURND_1} alt="hero-bg-image" />

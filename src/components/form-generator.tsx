@@ -1,3 +1,15 @@
+/*
+|--------------------------------------------------------------------------- 
+| Form Generator Component
+|--------------------------------------------------------------------------- 
+| A flexible component that generates forms based on input JSON configuration. 
+| It supports various input types (text, email, password, checkbox, etc.) and 
+| allows for custom validation logic with regular expressions and custom functions. 
+| It handles form field changes, validates inputs, and returns updated values and errors.
+| Additionally, it provides custom logic for handling suggestions, disabled states, 
+| and visual error handling for invalid input.
+*/
+
 import { ChangeEvent, Fragment, ReactNode, useEffect, useState } from "react"
 import INFO_ICON from "../assets/nofitication.svg"
 import "./css/form-generator.css"

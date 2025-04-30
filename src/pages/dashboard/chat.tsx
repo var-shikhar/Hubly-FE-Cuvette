@@ -1,20 +1,20 @@
 import { useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 import CALL_ICON from "../../assets/call.svg"
+import HOME_ICON from "../../assets/home.svg"
 import MAIL_ICON from "../../assets/mail.svg"
 import PROFILE_ICON from "../../assets/profile.svg"
+import SENT_ICON from "../../assets/send.svg"
 import TICKET_ICON from "../../assets/ticket-status.svg"
+import CHATBOT_ICON from "../../assets/users/chat-bot.svg"
 import Button from "../../components/button"
 import "../../components/css/chat.css"
 import Modal from "../../components/dialog"
 import ProfileImage from "../../components/profile-image"
-import useChatDetail from "../../hooks/chat/use-chat-detail"
-import { getRandomImage, showToast } from "../../lib/utils"
-import { RootState } from "../../redux/store"
 import LoadingSpinner from "../../components/spinner"
-import HOME_ICON from "../../assets/home.svg"
-import SENT_ICON from "../../assets/send.svg"
-import CHATBOT_ICON from "../../assets/users/chat-bot.svg"
-import { Link } from "react-router-dom"
+import useChatDetail from "../../hooks/chat/use-chat-detail"
+import { showToast } from "../../lib/utils"
+import { RootState } from "../../redux/store"
 
 type Props = {
   isDirect?: boolean
@@ -43,22 +43,17 @@ const Chat = ({ isDirect = false }: Props) => {
     isFetchingChats,
     handleStatusUpdate,
     handleAssigneeUpdate,
-    isSendingMessage,
     activeChatData,
     handleChatBotInput,
     submissionByEnterKey,
     handleChatSubmission,
     inputValue,
     chatWindowRef,
+    selectedIdx,
+    setSelectedIdx,
   } = useChatDetail({ isDirect })
 
-  if (
-    isUpdating ||
-    isUpdatingAssignee ||
-    isLoading ||
-    isFetchingChats ||
-    isSendingMessage
-  )
+  if (isUpdating || isUpdatingAssignee || isLoading || isFetchingChats)
     return <LoadingSpinner />
 
   return (
@@ -74,9 +69,12 @@ const Chat = ({ isDirect = false }: Props) => {
                 className={`chat_item ${
                   activeChat?.leadID === item.leadID ? "active-chat_item" : ""
                 }`}
-                onClick={() => handleActiveChat(item)}
+                onClick={() => {
+                  handleActiveChat(item)
+                  setSelectedIdx(idx <= 5 ? idx : 1)
+                }}
               >
-                <ProfileImage width={35} />
+                <ProfileImage width={35} number={idx <= 5 ? idx : 1} />
                 <div className="chat_item-content">
                   <div className="chat_item-title">Chat {idx + 1}</div>
                   <div className="chat_item-message">{item.latestMessage}</div>
@@ -183,7 +181,7 @@ const Chat = ({ isDirect = false }: Props) => {
             </div>
             <div className="chat_detail-wrapper">
               <div className="chat_detail-header">
-                <img src={getRandomImage()} alt="user" width={35} />
+                <ProfileImage width={35} number={selectedIdx} />
                 Chat
               </div>
               <span className="chat_detail-title">Details</span>
@@ -224,12 +222,14 @@ const Chat = ({ isDirect = false }: Props) => {
                       key={i}
                       className="status-item"
                       onClick={() => {
-                        user?.isAdmin || activeChat.isCurrentAssignee
-                          ? handleSelection(status, "Status")
-                          : showToast(
-                              "Only Admin can change the assignee",
-                              "warning"
-                            )
+                        if (user?.isAdmin || activeChat.isCurrentAssignee)
+                          handleSelection(status, "Status")
+                        else {
+                          showToast(
+                            "Only Admin can change the assignee",
+                            "warning"
+                          )
+                        }
                       }}
                     >
                       {status}
@@ -246,12 +246,14 @@ const Chat = ({ isDirect = false }: Props) => {
                       key={assignee.userID}
                       className="assignee-item"
                       onClick={() => {
-                        user?.isAdmin
-                          ? handleSelection(assignee.userID, "Assignee")
-                          : showToast(
-                              "Only Admin can change the assignee",
-                              "warning"
-                            )
+                        if (user?.isAdmin)
+                          handleSelection(assignee.userID, "Assignee")
+                        else {
+                          showToast(
+                            "Only Admin can change the assignee",
+                            "warning"
+                          )
+                        }
                       }}
                     >
                       <ProfileImage />

@@ -1,3 +1,12 @@
+/**
+ * useDashboard – Custom hook for managing the dashboard state, including ticket filtering, mode switching, and search functionality.
+ *
+ * - Fetches a list of leads with pagination, filtered by ticket status using RTK Query.
+ * - Filters tickets based on a search input (ticketID).
+ * - Allows switching between different ticket modes (All, Resolved, Unresolved).
+ * - Provides a function to handle navigating to the detailed chat view of a ticket.
+ */
+
 import { ChangeEvent, useMemo, useState } from "react"
 import { useGetLeadListQuery } from "../../redux/slice/lead-slice"
 import { useNavigate } from "react-router-dom"
